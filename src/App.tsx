@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import swell from 'swell-js';
-import { SwellResponse } from 'swell-response-type';
+import { SwellResponse } from './swell-response-type';
 import "./styles.css";
 
 const App = () => {
@@ -9,8 +9,8 @@ const App = () => {
   console.log(products);
 
   useEffect(() => {
-    const getProducts = async (): SwellResponse => {
-      swell.init('mystore', 'pk_myapikeys');
+    const getProducts = async (): Promise<SwellResponse> => {
+      swell.init('store_ID', 'api_keys');
 
       const result = await swell.products.list({
         // category: 't-shirts',
